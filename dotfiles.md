@@ -42,3 +42,57 @@ Note: Above functions need to be defined before updating PS1
 
     PS1="╭──╴ \e[33;1m\$(myinitials)\e[0m ─ \e[39;1m\h\e[0m \$(smiley) \$(gitbranch) \e[30;1m\w\e[0m\n╰──╴\$ "
 
+
+
+
+## .vimrc
+        set nocompatible
+        syntax on
+        
+        " No more indented paste
+        set paste
+        
+        set showmatch
+        
+        " search like in modern browser
+        set incsearch
+        
+        " For regex turn magic on
+        set magic
+        
+        "highlight comment ctermfg=lightblue
+        "highlight special ctermfg=yellow
+        "highlight nontext ctermfg=white
+        
+        " auto indent
+        set ai
+        
+        " Smart indent
+        set si
+        
+        " wrap lines
+        set wrap
+        
+        " Display line/column
+        set ruler
+        
+        " Toggle paste mode on and off
+        map<leader>pp :setlocal paste!<cr>
+        
+        " Enable Pig highlighting
+        
+        augroup filetypedetect
+          au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+        augroup END
+        
+        
+        " Map F4 to toggle search highlighting
+        noremap <F4> :set hlsearch! hlsearch?<CR>
+        set tabstop=4
+        set shiftwidth=4
+        
+        filetype plugin on
+        
+        execute pathogen#infect()
+        colorscheme elflord
+
